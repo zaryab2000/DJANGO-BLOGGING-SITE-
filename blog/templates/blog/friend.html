@@ -1,0 +1,35 @@
+{% extends "blog/base_profile.html" %}
+{% load static %}
+{% block content %}
+
+	<div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <h4 class="account-heading">SEARCH RESULTS FOR {{name}}</h4>
+          <p class="text-secondary"></p>
+        </div>
+
+      </div>
+   
+    </div>
+
+    <div class="container">
+      {% for data in datas %}
+      {% if data.public %}
+    	 <article class="media content-section">
+          <div class="media-body">
+            <h5 class="text-muted">{{ data.date }}</h5>
+            <div class="article-metadata">
+              <h4><a class="mr-2" href="#">{{ data.person }}</a></h4>
+            </div>
+            <h5>posted</h5>
+            <h2><a class="article-title" href="#">{{ data.title }}</a></h2>
+            <img class="img-thumbnail" alt="Responsive Thumbnail Image" src="{{ data.image.url }}" width="60%">
+            <p class="article-title">{{ data.article }}</p>
+            
+          </div>
+        </article>
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

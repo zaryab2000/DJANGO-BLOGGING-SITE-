@@ -1,0 +1,36 @@
+{% extends "blog/base_profile.html" %}
+{% load static %}
+{% block content %}
+
+	<div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+          <h1>{{ count }} Blogs Yet</h1>
+      </div>
+   
+    </div>
+
+    <div class="container">
+      {% for data in datas %}
+    	 <article class="media content-section">
+          <div class="media-body">
+            <h5 class="text-muted">{{ data.date }}</h5>
+            <div class="article-metadata">
+              <h4><a class="mr-2" href="#" %}>Written By: {{ data.person }}</a></h4>
+            </div>
+            <br>
+            <h2 class="article-title-head">{{ data.title }}</h2>
+            <img class="img-thumbnail" alt="Responsive Thumbnail Image" src="{{ data.image.url }}" width="160%" height="90">
+            <br>
+            <p class="article-title">{{ data.article }}</p>
+            
+          </div>
+        </article>
+
+        {% endfor %}
+    </div>
+{% endblock %}

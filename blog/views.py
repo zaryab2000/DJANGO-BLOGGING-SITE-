@@ -27,7 +27,9 @@ def form_entry(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST, request.FILES)
 		if form.is_valid():
-			form.save()
+			var = form.save(commit=False)
+			var.person = request.user
+			var.save()
 			return redirect('home')
 
 

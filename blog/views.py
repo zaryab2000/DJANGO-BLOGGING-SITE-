@@ -24,10 +24,16 @@ def home(request):
 
 @login_required
 def form_entry(request):
+	# instance = Post(person=request.user.username)
+	# form = PostForm(instance=instance)
+
 	if request.method == 'POST':
 		form = PostForm(request.POST, request.FILES)
 		if form.is_valid():
-			form.save()
+			var = form.save(commit=False)
+			var.person = request.user
+			var.save()
+
 			return redirect('home')
 
 

@@ -33,7 +33,10 @@ def form_entry(request):
 			var = form.save(commit=False)
 			var.person = request.user
 			var.save()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6c526d8f50087d6bc0a6ac1ea56d4da03fb3ca5f
 			return redirect('home')
 
 
